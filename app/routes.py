@@ -2,6 +2,7 @@ from flask import request, jsonify
 from app import create_app
 from app.servo_control import move_servo, get_servo_position
 
+# Create the app instance
 app = create_app()
 
 
@@ -20,3 +21,7 @@ def set_position():
 def get_position():
     position = get_servo_position()
     return jsonify({"current_position": position}), 200
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
